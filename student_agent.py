@@ -12,7 +12,13 @@ def get_action(obs):
     #       To prevent crashes, implement a fallback strategy for missing keys. 
     #       Otherwise, even if your agent performs well in training, it may fail during testing.
 
-
-    return random.choice([0, 1, 2, 3, 4, 5]) # Choose a random action
+    if obs[10] == 0:
+        return 1
+    if obs[11] == 0:
+        return 0
+    if obs[12] == 0:
+        return 2
+    if obs[13] == 0:
+        return 3
     # You can submit this random agent to evaluate the performance of a purely random strategy.
 
