@@ -4,6 +4,9 @@ import pickle
 import random
 import gym
 
+with open("q_table.pkl", "rb") as f:
+    Q_table = pickle.load(f)
+
 def get_action(obs):
     
     # TODO: Train your own agent
@@ -11,14 +14,4 @@ def get_action(obs):
     # NOTE: Keep in mind that your Q-table may not cover all possible states in the testing environment.
     #       To prevent crashes, implement a fallback strategy for missing keys. 
     #       Otherwise, even if your agent performs well in training, it may fail during testing.
-
-    if obs[10] == 0:
-        return 1
-    if obs[11] == 0:
-        return 0
-    if obs[12] == 0:
-        return 2
-    if obs[13] == 0:
-        return 3
-    # You can submit this random agent to evaluate the performance of a purely random strategy.
-
+    return np.argmax(Q_table[(obs[0], obs[1], obs[10], obs[11], obs[12], obs[13])])
