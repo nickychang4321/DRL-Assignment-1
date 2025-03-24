@@ -14,4 +14,4 @@ def get_action(obs):
     # NOTE: Keep in mind that your Q-table may not cover all possible states in the testing environment.
     #       To prevent crashes, implement a fallback strategy for missing keys. 
     #       Otherwise, even if your agent performs well in training, it may fail during testing.
-    return np.argmax(Q_table[(obs[0], obs[1], obs[10], obs[11], obs[12], obs[13])])
+    return np.argmax(Q_table[(obs[10], obs[11], obs[12], obs[13])])
